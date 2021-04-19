@@ -1,0 +1,34 @@
+# Laboratorio-de-arduino-numero-2
+import pyfirmata #Importamos la libreria del arduino hacia python
+
+puerto = "\\.\COM5"  # Puerto COM de emulación en USB
+pin1 = (10)
+pin2 = (11)  # PIN donde va conectado el LED
+pin3 = (12)
+pin4 = (13)
+pin5 = (9)
+pin6 = (8)
+# Conexión con placa Arduino
+print("Conectando con Arduino por USB...")
+tarjeta = pyfirmata.Arduino(puerto)
+print("Conectado a Arduino por USB...")
+while True:
+    print("Encendiendo LED...")
+    tarjeta.digital[pin1].write(1)
+    tarjeta.digital[pin2].write(1)
+    tarjeta.digital[pin3].write(1)
+    tarjeta.digital[pin4].write(1)
+    tarjeta.digital[pin5].write(1)
+    tarjeta.digital[pin6].write(1)
+    print("Encendido LED...")
+    tarjeta.pass_time(2)
+    print("Apagando LED...")
+    tarjeta.digital[pin1].write(0)
+    tarjeta.digital[pin2].write(0)
+    tarjeta.digital[pin3].write(0)
+    tarjeta.digital[pin4].write(0)
+    tarjeta.digital[pin5].write(0)
+    tarjeta.digital[pin6].write(0)
+    print("Apagado LED...")
+    tarjeta.pass_time(2)
+tarjeta.exit()
